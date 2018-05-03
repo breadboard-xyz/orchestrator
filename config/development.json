@@ -1,0 +1,8 @@
+{
+  "make" : {
+    "url"   : "http://localhost:8075"
+  },
+  "codedb" : {
+    "url"   : "http://localhost:8585"
+  }
+}

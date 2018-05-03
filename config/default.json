@@ -1,0 +1,24 @@
+{
+  "make" : {
+    "url" : "http://make.breadboard.io:8075",
+    "redis" : {
+      "db": 4,
+      "host": "[REDIS_HOST]",
+      "port": 6379
+    }
+  },
+  "orchestrator" : {
+    "name"      : "[name]",
+    "token"     : "[token]",
+    "swarm"     : {
+      "hostname"  : "[SWARM_MANAGER_IP_OR_SOCKET]",
+      "port"      : "[SWARM_MANAGER_PORT_OR_NULL]"
+    }
+  },
+  "make" : {
+    "url"   : "http://make.breadboard.io:8075"
+  },
+  "codedb" : {
+    "url"   : "http://code.breadboard.io:8585"
+  }
+}
