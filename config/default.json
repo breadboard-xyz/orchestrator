@@ -13,6 +13,11 @@
     "swarm"     : {
       "hostname"  : "[SWARM_MANAGER_IP_OR_SOCKET]",
       "port"      : "[SWARM_MANAGER_PORT_OR_NULL]"
+    },
+    "registry" : {
+      "username" : "[username]",
+      "password" : "[password]",
+      "serveraddress" : "[hostname]"
     }
   },
   "make" : {

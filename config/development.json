@@ -1,6 +1,12 @@
 {
   "make" : {
-    "url"   : "http://localhost:8075"
+    "url"   : "http://localhost:8075",
+    "redis" : {
+      "host"          : "localhost",
+      "port"          : 6379,
+      "password"      : null,
+      "db"            : 4
+    }
   },
   "codedb" : {
     "url"   : "http://localhost:8585"
