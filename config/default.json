@@ -13,6 +13,7 @@
     "swarm"     : {
       "hostname"  : "[SWARM_MANAGER_IP_OR_SOCKET]",
       "port"      : "[SWARM_MANAGER_PORT_OR_NULL]",
+      "protocol"  : "http:",
       "cert"      : null,
       "key"       : null,
       "passphrase": null,
