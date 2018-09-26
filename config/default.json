@@ -12,7 +12,11 @@
     "token"     : "[token]",
     "swarm"     : {
       "hostname"  : "[SWARM_MANAGER_IP_OR_SOCKET]",
-      "port"      : "[SWARM_MANAGER_PORT_OR_NULL]"
+      "port"      : "[SWARM_MANAGER_PORT_OR_NULL]",
+      "cert"      : null,
+      "key"       : null,
+      "passphrase": null,
+      "ca"        : null
     },
     "registry" : {
       "username" : "[username]",
