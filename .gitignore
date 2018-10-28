@@ -60,3 +60,5 @@ typings/
 local.json
 .remote-sync.json
 .jwt
+
+secret

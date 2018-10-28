@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha tests/**/*.js --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -16,10 +16,13 @@
     "bluebird": "^3.5.2",
     "bluebird-retry": "^0.11.0",
     "bytes": "^3.0.0",
+    "chai": "^4.2.0",
     "config": "^2.0.1",
     "config-url": "git+https://github.com/a7medkamel/config-url.git",
     "dockerode": "^2.5.7",
+    "kubernetes-client": "^6.3.0",
     "lodash": "^4.17.11",
+    "mocha": "^5.2.0",
     "ms": "^2.1.1",
     "rand-token": "^0.4.0",
     "socket.io-client": "^2.1.1",
