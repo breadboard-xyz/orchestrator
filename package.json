@@ -13,24 +13,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.2",
+    "bluebird": "^3.5.3",
     "bluebird-retry": "^0.11.0",
-    "bytes": "^3.0.0",
+    "bytes": "^3.1.0",
     "cache-manager": "^2.9.0",
     "chai": "^4.2.0",
-    "config": "^2.0.1",
+    "config": "^3.0.1",
     "config-url": "git+https://github.com/a7medkamel/config-url.git",
-    "dockerode": "^2.5.7",
-    "kubernetes-client": "^6.3.0",
+    "dockerode": "^2.5.8",
+    "kubernetes-client": "^6.11.0",
     "lodash": "^4.17.11",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.2",
     "ms": "^2.1.1",
     "node-uuid": "^1.4.8",
     "rand-token": "^0.4.0",
-    "socket.io-client": "^2.1.1",
+    "socket.io-client": "^2.2.0",
     "taskmill-core-codedb-sdk": "git+https://github.com/a7medkamel/taskmill-core-codedb-sdk.git",
-    "wait-on": "^3.1.0",
-    "winston": "^3.1.0"
+    "wait-on": "^3.2.0",
+    "winston": "^3.2.1"
   },
   "bugs": {
     "url": "https://github.com/a7medkamel/taskmill-core-orchestrator/issues"
