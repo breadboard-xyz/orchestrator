@@ -1,4 +1,4 @@
-from node:10 as builder
+from node as builder
 
 WORKDIR /src
 
@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-from node:10-alpine
+from node:alpine
 
 WORKDIR /src
 
