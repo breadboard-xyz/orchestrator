@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/**/*.js --reporter spec"
+    "test": "./node_modules/mocha/bin/mocha",
+    "check": "gts check",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run check"
   },
   "repository": {
     "type": "git",
@@ -13,27 +20,40 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "^3.5.3",
+    "@kubernetes/client-node": "^0.12.0",
+    "bluebird": "^3.7.2",
     "bluebird-retry": "^0.11.0",
     "bytes": "^3.1.0",
-    "cache-manager": "^2.9.0",
-    "chai": "^4.2.0",
-    "config": "^3.0.1",
+    "cache-manager": "^3.3.0",
     "config-url": "git+https://github.com/a7medkamel/config-url.git",
-    "dockerode": "^2.5.8",
-    "kubernetes-client": "^6.11.0",
-    "lodash": "^4.17.11",
-    "mocha": "^6.0.2",
-    "ms": "^2.1.1",
-    "node-uuid": "^1.4.8",
-    "rand-token": "^0.4.0",
-    "socket.io-client": "^2.2.0",
+    "dockerode": "^3.2.0",
+    "rand-token": "^1.0.1",
+    "socket.io-client": "^2.3.0",
     "taskmill-core-codedb-sdk": "git+https://github.com/a7medkamel/taskmill-core-codedb-sdk.git",
-    "wait-on": "^3.2.0",
-    "winston": "^3.2.1"
+    "uuid": "^8.1.0",
+    "wait-on": "^5.0.0",
+    "winston": "^3.2.1",
+    "ws": "^7.3.0"
   },
   "bugs": {
     "url": "https://github.com/a7medkamel/taskmill-core-orchestrator/issues"
   },
-  "homepage": "https://github.com/a7medkamel/taskmill-core-orchestrator#readme"
+  "homepage": "https://github.com/a7medkamel/taskmill-core-orchestrator#readme",
+  "devDependencies": {
+    "@types/uuid": "^8.0.0",
+    "@types/bluebird": "^3.5.32",
+    "@types/cache-manager": "^2.10.3",
+    "@types/chai": "^4.2.11",
+    "@types/config": "0.0.36",
+    "@types/lodash": "^4.14.154",
+    "@types/mocha": "^7.0.2",
+    "@types/ms": "^0.7.31",
+    "@types/node": "^14.0.9",
+    "@types/socket.io-client": "^1.4.33",
+    "chai": "^4.2.0",
+    "gts": "^2.0.2",
+    "mocha": "^7.2.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  }
 }

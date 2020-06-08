@@ -1,25 +1,26 @@
-var Promise       = require('bluebird')
-  , config        = require('config-url')
-  , Orchestrator  = require('./lib/orchestrator')
-  ;
-
+const Promise = require('bluebird'),
+  config = require('config-url'),
+  Orchestrator = require('./lib/orchestrator'),
+  Sandbox = require('./lib/sandbox_k8s');
 process.on('unhandledRejection', (err, p) => {
   console.error(new Date().toUTCString(), 'unhandledRejection', err.message);
   console.error(err.stack);
 });
 
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', err => {
   console.error(new Date().toUTCString(), 'uncaughtException', err.message);
   console.error(err.stack);
 });
 
 function main() {
-  let name  = config.get('orchestrator.name')
-    , token = config.get('orchestrator.token')
-    , url   = config.getUrl('make')
-    ;
+  const name = config.get('orchestrator.name'),
+    token = config.get('orchestrator.token'),
+    url = config.getUrl('make');
+  new Orchestrator({name}).connect(url, {token});
 
-  (new Orchestrator({ name })).connect(url, { token });
+  setInterval(() => {
+    Sandbox.sweep();
+  }, ms('5s'));
 }
 
 if (require.main === module) {
@@ -27,5 +28,5 @@ if (require.main === module) {
 }
 
 module.exports = {
-  main
+  main,
 };
