@@ -153,28 +153,20 @@ export class Orchestrator {
     const hostname = config.get('sandbox.loadbalancer.hostname');
 
     // todo [ahmed.kamel] looks like port is already assigned
-    const endpoint = await bluebird_retry(
-      async () => {
-        // const body = await Sandbox.inspect(id);
+    const endpoint = (() => {
+      const port = _.chain(service)
+        .get('spec.ports')
+        .find({targetPort: 8080})
+        .get('nodePort')
+        .value();
 
-        // const port = _.chain(body)
-        console.log(service?.spec?.ports);
-        const port = _.chain(service)
-          .get('spec.ports')
-          .find({targetPort: 8080})
-          .get('nodePort')
-          .value();
+      if (!port) {
+        throw new Error('port not assigned');
+      }
 
-        if (!port) {
-          throw new Error('port not assigned');
-        }
+      return {id, image, secret, protocol, hostname, port};
+    })();
 
-        return {id, image, secret, protocol, hostname, port};
-      },
-      {timeout: ms('10s'), interval: 200}
-    );
-
-    console.log(endpoint);
     const {port} = endpoint;
     // todo [akamel] failing wait_on doesn't terminate _waiting_ on playground
     // todo [ahmed.kamel] we are not catching any exception thrown from awaits
