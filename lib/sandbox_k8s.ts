@@ -42,15 +42,15 @@ export class Sandbox {
 
     const mapped = _.chain(items)
       .map(item => {
-        const {spec, metadata} = item;
+        const {metadata} = item;
 
         if (!metadata) {
           return;
         }
 
-        const {uid, creationTimestamp, labels} = metadata;
+        const {name, uid, creationTimestamp, labels} = metadata;
 
-        if (!uid || !creationTimestamp || !labels) {
+        if (!name || !uid || !creationTimestamp || !labels) {
           // todo: [ahmed.kamel] handle this case better
           return;
         }
@@ -60,6 +60,7 @@ export class Sandbox {
         const age = now - new Date(creationTimestamp).getTime(),
           expired = age > ms('10m');
         return {
+          name,
           id: uid,
           created_at: creationTimestamp,
           age,
@@ -75,10 +76,10 @@ export class Sandbox {
         return;
       }
 
-      const {id, expired, make_hash} = item;
+      const {name, id, expired, make_hash} = item;
 
       if (expired) {
-        Sandbox.delete(id, {hash: make_hash});
+        Sandbox.delete(name, {hash: make_hash});
         return;
       }
 
@@ -111,11 +112,13 @@ export class Sandbox {
     return ret.body;
   }
 
-  static async delete(id: string, options: {hash: string}) {
-    const ret = await k8sApi.deleteNamespacedService(id, 'default');
+  static async delete(name: string, options: {hash: string}) {
+    const ret = await k8sApi.deleteNamespacedService(name, 'default');
 
     const {hash} = options;
     cache.del(hash);
+
+    const retpod = await k8sApi.deleteNamespacedPod(`${name}-pod`, 'default');
 
     return ret;
   }
