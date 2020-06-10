@@ -14,4 +14,4 @@ RUN npm ci
 
 RUN npm run compile
 
-CMD [ "node", "./build/lib/index.js" ]
+CMD [ "./boot.sh" ]
