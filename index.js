@@ -1,7 +1,7 @@
 const Promise = require('bluebird'),
   config = require('config-url'),
-  Orchestrator = require('./lib/orchestrator'),
-  Sandbox = require('./lib/sandbox_k8s');
+  Orchestrator = require('./build/lib/orchestrator'),
+  Sandbox = require('./build/lib/sandbox_k8s');
 process.on('unhandledRejection', (err, p) => {
   console.error(new Date().toUTCString(), 'unhandledRejection', err.message);
   console.error(err.stack);
