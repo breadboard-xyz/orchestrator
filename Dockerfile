@@ -1,19 +1,17 @@
-from node as builder
-
-WORKDIR /src
-
-COPY package*.json ./
-
-RUN npm install
-
-from node:alpine
+FROM node as builder
 
 WORKDIR /src
 
 COPY . .
 
-RUN rm -rf ./node_modules
+RUN npm ci
 
-COPY --from=builder /src/node_modules ./node_modules
+RUN npm run compile
+
+FROM node:alpine
+
+WORKDIR /src
+
+COPY --from=builder /src/ ./
 
 CMD [ "node", "index.js" ]
