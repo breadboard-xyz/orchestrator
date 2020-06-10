@@ -14,4 +14,4 @@ WORKDIR /src
 
 COPY --from=builder /src/ ./
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "./build/index.js" ]
