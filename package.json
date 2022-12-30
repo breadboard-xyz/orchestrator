@@ -52,7 +52,7 @@
     "@types/socket.io-client": "^1.4.33",
     "chai": "^4.2.0",
     "gts": "^2.0.2",
-    "mocha": "^7.2.0",
+    "mocha": "^10.2.0",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.3"
   }
